@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
         - name: httpserver
-          image: httpserver:latest
+          image: popcorn27/httpserver:v1.2
           imagePullPolicy: IfNotPresent
           env:
             - name: PORT
-              value: "4031"
+              value: "3000"
 
