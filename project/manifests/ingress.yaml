@@ -1,16 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: dwk-log-output-ingress
+  name: dwk-httpserver-ingress
 spec: 
   rules:
-  - host: log.localtest.my
+  - host: todoapp.localtest.my 
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: log-output-svc
+            name: httpserver-svc
             port:
-              number: 2002
+              number: 2000
