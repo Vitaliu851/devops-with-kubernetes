@@ -12,4 +12,6 @@
 | **1.6** | `todo_app add service` | [Release 1.6](https://github.com/Vitaliu851/devops-with-kubernetes/tree/1.6) |
 | **1.7** | `log_output add ingress` | [Release 1.7](https://github.com/Vitaliu851/devops-with-kubernetes/tree/1.7) |
 | **1.8** | `todo_app add ingress` | [Release 1.8](https://github.com/Vitaliu851/devops-with-kubernetes/tree/1.8) |
+| **1.9** | `crate pinpong` | [Release 1.9](https://github.com/Vitaliu851/devops-with-kubernetes/tree/1.9) |
+
 

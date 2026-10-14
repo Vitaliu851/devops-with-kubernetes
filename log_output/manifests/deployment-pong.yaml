@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pinpong-deployment
+  labels:
+    app: pinpong
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pinpong
+  template:
+    metadata:
+      labels:
+        app: pinpong
+    spec:
+      containers:
+        - name: pinpong
+          image: popcorn27/pinpong:v1
+          imagePullPolicy: Always
+          env:
+            - name: PORT
+              value: "3003"
+
+            
+

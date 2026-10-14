@@ -14,3 +14,11 @@ spec:
             name: log-output-svc
             port:
               number: 2002
+
+      - path: /pinpong
+        pathType: Prefix
+        backend:
+          service:
+            name: pinpong-svc
+            port:
+              number: 2003
