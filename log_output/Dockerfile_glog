@@ -1,0 +1,5 @@
+FROM python:3.14
+WORKDIR /usr/src/app
+COPY generate_log.py ./
+CMD ["python", "generate_log.py"] 
+

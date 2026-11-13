@@ -13,11 +13,26 @@ spec:
     metadata: 
       labels:
         app: log-output
-    spec: 
+    spec:
+      volumes:
+        - name: logout
+          emptyDir:
+            sizeLimit: 5Gi
       containers:
-        - name: log-output
-          image: popcorn27/log-output:v1.2 
-          imagePullPolicy: IfNotPresent
+        - name: generate-log
+          image: popcorn27/generate-log:v1 
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /log
+              name: logout
+
+        - name: web-log
+          image: popcorn27/web-log:v1
+          imagePullPolicy: Always                    
+          volumeMounts:
+            - mountPath: /log
+              name: logout
+
 
 
 

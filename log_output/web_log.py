@@ -1,0 +1,33 @@
+
+from collections import deque
+from http.server import HTTPServer, BaseHTTPRequestHandler
+latest_time = ""
+latest_string = ""
+PORT = 3002
+
+
+class StatusHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == "/":
+            with open("/log/log.txt", "r") as file:
+                lastline = deque(file, maxlen=1)
+                response_text = lastline[0] if lastline else ""
+                self.send_response(200)
+                self.send_header('Content-type', 'text/plain; charset=utf-8')
+                self.end_headers()
+                self.wfile.write(response_text.encode('utf-8'))
+        else:
+            self.send_response(404)
+            self.end_headers()
+
+    def log_message(self, format, *args):
+        return
+
+def run():
+
+    server_address = ('', PORT)
+    httpd = HTTPServer(server_address, StatusHandler)
+    httpd.serve_forever()
+
+if __name__ == '__main__':
+    run()
